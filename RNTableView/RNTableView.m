@@ -356,7 +356,11 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
         {
             [cell setBackgroundColor:[UIColor clearColor]];
         } else {
-            [cell setBackgroundColor:[UIColor whiteColor]];
+            if (@available(iOS 13.0, *)) {
+                [cell setBackgroundColor: [UIColor secondarySystemGroupedBackgroundColor]];
+            } else {
+                [cell setBackgroundColor: [UIColor whiteColor]];
+            }
         }
     }
     
